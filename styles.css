@@ -1,0 +1,176 @@
+/** FONTS **/
+@font-face {
+  font-family: Vazirmatn;
+  src: url('fonts/vazirmatn.ttf');
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Esfahan;
+  src: url('fonts/esfahan.ttf');
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Dorood;
+  src: url('fonts/dorood.ttf');
+  font-style: normal;
+  font-display: swap;
+}
+
+/** VAR **/
+:root {
+  --oc-gray-0: #f8f9fa;
+  --oc-gray-7: #495057;
+  --oc-gray-7-opacity: hsla(210, 9%, 31%, 0.4);
+  --oc-gray-8: #343a40;
+  --oc-gray-9: #212529;
+  --oc-indigo-8: #3b5bdb;
+  --oc-pink-8: #c2255c;
+  --oc-red-7: #f03e3e;
+}
+
+/** BASE **/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html, body, #app {
+  height: 100%;
+  background-color: var(--oc-gray-9);
+  color: var(--oc-gray-0);
+}
+html {
+  direction: rtl;
+  position: relative;
+}
+button {
+  color: inherit;
+}
+a:link, a:visited {
+  color: var(--oc-indigo-8);
+}
+a:hover, a:active, a:focus {
+  color: var(--oc-pink-8);
+  text-decoration: underline var(--oc-pink-8);
+}
+
+/** TYPOGRAPHY **/
+html { font-size: 62.5%; }
+body { font-family: Vazirmatn; font-size: 2rem; }
+.PBUH { font-family: Dorood; }
+h1, h2, h3 { font-family: Esfahan; }
+
+/** MODAL **/
+.modal {
+  background: var(--oc-gray-8);
+  display: grid;
+  place-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+}
+.modal__content {
+  background-color: var(--oc-gray-9);
+  border-radius: 2rem;
+  text-align: center;
+  overflow: hidden;
+}
+.modal__content h1,
+.modal__content p {
+  margin-bottom: 2rem;
+}
+.modal__text {
+  padding: 2rem 3rem;
+}
+.modal__btns {
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+}
+.btn {
+  background-color: transparent;
+  border: 1px solid var(--oc-gray-0);
+  color: var(--oc-gray-0);
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  font-size: 0.75em;
+}
+.btn--play-music {
+  padding: 3rem 1rem;
+  flex: 1;
+  border: none;
+  border-radius: 0;
+}
+#mother-of-sea-btn { background-color: var(--oc-indigo-8); }
+#like-heart-btn { background-color: var(--oc-pink-8); }
+
+/** APP **/
+#app {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+#heart,
+#heart::before,
+#heart::after {
+  height: 10rem;
+  width: 10rem;
+  background-color: var(--oc-red-7);
+  box-shadow: -1rem 1rem 9rem var(--oc-red-7);
+}
+#heart {
+  position: relative;
+  transform: rotate(-45deg);
+  animation: heart 600ms linear infinite;
+}
+#heart::before,
+#heart::after {
+  content: '';
+  position: absolute;
+  border-radius: 100rem;
+}
+#heart::before { top: -50%; box-shadow: -1rem -1rem 9rem var(--oc-red-7); }
+#heart::after { right: -50%; box-shadow: 1rem 1rem 9rem var(--oc-red-7); }
+
+.toast__wrapper {
+  position: absolute;
+  background: var(--oc-gray-7-opacity);
+  border-radius: 1rem;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+.toast {
+  font-family: Esfahan;
+  font-size: 3rem;
+  text-align: center;
+  background-clip: text;
+  padding: 1rem 2rem;
+  background: linear-gradient(
+    to left, 
+  hsl(0, 100%, 63%), 
+  hsl(39, 100%, 59%) , 
+  hsl(60, 98%, 53%), 
+  hsl(120, 75%, 51%), 
+  hsl(180, 84%, 53%), 
+  hsl(234, 81%, 65%), 
+  hsl(300, 76%, 72%)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/** ANIMATIONS **/
+@keyframes heart {
+  0% { transform: rotate(-45deg) scale(1.1); }
+  60% { transform: rotate(-45deg) scale(1); }
+  100% { transform: rotate(-45deg) scale(0.9); }
+}
