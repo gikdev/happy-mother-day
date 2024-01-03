@@ -174,3 +174,8 @@ h1, h2, h3 { font-family: Esfahan; }
   60% { transform: rotate(-45deg) scale(1); }
   100% { transform: rotate(-45deg) scale(0.9); }
 }
+
+/**‌ MEDIA QUERIES **/
+@media screen and (max-width: 50rem) {
+  .toast { font-size: 2rem; }
+}
